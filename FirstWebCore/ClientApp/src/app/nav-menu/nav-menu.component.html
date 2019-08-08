@@ -1,0 +1,50 @@
+<header>
+  <nav class='navbar navbar-expand-sm fixed-top navbar-light navbar-toggleable-sm bg-white border-bottom box-shadow mb-3'>
+    <div class="container">
+      <a class="navbar-brand text-danger" [routerLink]='["/"]'>Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse"
+        aria-label="Toggle navigation" [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+      [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+          <ng-container *ngIf="IsLoggedIn(); else notLoggedIn">
+            <li class="nav-item" class="link m-right" >
+              <a title="Home" [routerLinkActive]='["link-active"]'  [routerLinkActiveOptions]='{ exact: true }'
+              class="fa fa-home fa-lg nav-link" [routerLink]='["/"]'></a>
+            </li>
+
+            <li class="nav-item m-right">
+              <a title="Notifications" class="nav-link fa fa-bell fa-lg" [routerLink]='["/notifications"]'
+                [routerLinkActive]='["link-active"]' (click)="resetCount()">
+                <span *ngIf="count > 0" class="notificationCounter">{{count}}</span>
+              </a>
+            </li>
+            <li class="nav-item m-right">
+              <a title="Profile" class="nav-link fa fa-user fa-lg" [routerLink]='["/profile/", curUser.id]'
+                [routerLinkActive]='["link-active"]'></a>
+            </li>
+
+            <li class="nav-item m-right">
+              <a title="Friends" class="nav-link fa fa-users fa-lg" [routerLink]='["/friends"]'
+                [routerLinkActive]='["link-active"]'></a>
+            </li>
+
+            <li class="nav-item">
+              <button class="nav-link text-light btn btn-dark" (click)="logout()">Logout</button>
+            </li>
+          </ng-container>
+          <ng-template #notLoggedIn>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link text-dark" [routerLink]='["/register"]'>Register</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]='["link-active"]'>
+              <a class="nav-link text-dark" [routerLink]='["/login"]'>Login</a>
+            </li>
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

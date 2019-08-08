@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-5 form-control" style="height: auto; padding: 25px">
+    <h2 class="text-danger">Login Form</h2>
+    <br />
+    <form [formGroup]="UserForm">
+      <p *ngIf="errors.length > 0" class="alert-danger">
+        {{errors[0].loginError}}
+      </p>
+      <div class="form-group">
+        <label for="name">Username</label>
+        <input name="name" type="name" formControlName="name" class="form-control">
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" type="password" formControlName="password" class="form-control">
+      </div>
+      <br />
+      <br />
+      <div class="form-group text-center">
+        <input type="submit" (click)="login()" value="Login" class=" btn btn-primary">
+        <a [routerLink]="['/register']" routerLinkActive="link-active" class="text-primary"> Create new account?</a>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

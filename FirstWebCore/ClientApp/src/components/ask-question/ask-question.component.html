@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row" style="height: auto;">
+    <div class="col-md-2"></div>
+    <div class="col-sm-8 askBox form-control" style="height: auto; padding: 18px">
+      <div class="row">
+        <div class="col-md-3">Your question:</div>
+      </div>
+      <div class="row" style="margin-top: 5px">
+        <div class="col-md-12">
+          <textarea #question rows="8" class="form-control"></textarea>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 25px;">
+        <div class="col-md-5 text-dark">
+          <label for="anon">Ask anonymously? </label>
+          <input class="custom-checkbox" #anon type="checkbox" name="anon" style="margin-left: 3px">
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-danger btn-block" (click)="ask(question, anon)">Ask</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

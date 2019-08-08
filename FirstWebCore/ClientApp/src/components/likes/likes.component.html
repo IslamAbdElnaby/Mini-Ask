@@ -1,0 +1,20 @@
+<div class="row" style="margin-bottom: 5px; padding: 9px" *ngFor="let like of likes">
+  <div class="col-md-12 form-control {{like.seen !== true ? 'unseen' : ''}}"
+  [routerLink]="['/view/post/', like.postId]" [queryParams]="{ likeId: like.id }"
+    style="height: auto; cursor: pointer;">
+    <p>
+      <a [routerLink]="['/profile/', like.reactUserId]">
+        <img src="20190331222414165.jpg" class="img-thumbnail" style="border-radius: 50%;
+  width: 60px;
+  max-width: 60ox;
+  height: 60px;">{{like.reactUserName}} </a>
+      <span>likes your answer: </span>
+      "{{like.answer}}"
+    </p>
+  </div>
+</div>
+<div *ngIf="likes.length === 0" class="row" style="margin-bottom: 5px; padding: 9px;">
+  <div class="col-md-12 form-control text-center" style="height: auto; padding-top: 11px">
+    <p class="text-danger">There's no likes.</p>
+  </div>
+</div>

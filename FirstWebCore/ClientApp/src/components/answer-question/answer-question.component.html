@@ -1,0 +1,31 @@
+<ng-container *ngIf="question.id !== -1; else elseTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 form-control text-dark" style="height: auto; padding: 8px">
+        <label for="que">Question: </label>
+        <p name="que">"{{question.question}}"</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 form-control" style="height: auto">
+        <label for="answer">Your answer: </label>
+        <textarea name="answer" #answer class="form-control" rows="10"></textarea>
+        <div class="row" style="padding: 10px">
+          <button class="btn btn-outline-danger" (click)="Answer(answer)" style="margin-left: 45%; margin-top: 7px">
+            Answer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 form-control">
+      <p class="text-danger text-center"> NOT FOUND...</p>
+    </div>
+  </div>
+</ng-template>

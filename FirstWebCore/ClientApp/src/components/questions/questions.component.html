@@ -1,0 +1,21 @@
+<div class="row" style="margin-bottom: 5px; padding: 9px; cursor: pointer;"
+*ngFor="let q of questions">
+  <div class="col-md-12 form-control {{q.qSeen !== true ? 'unseen' : ''}}"
+  style="height: auto; padding-top: 11px"
+    [routerLink]="['/answer/question', q.id]">
+    <p>
+      <a *ngIf="q.sendUser && !q.anonymous" [routerLink]="['/profile/', q.sendUser.identityId]">
+        <img src="20190331222414165.jpg" class="img-thumbnail" style="border-radius: 50%;
+  width: 60px;
+  max-width: 60ox;
+  height: 60px;">{{q.sendUser.name}} </a>
+
+      <span class="text-dark">{{q.anonymous !== false? 'someone ': ''}}has a question for you: </span>"{{q.question}}"</p>
+  </div>
+</div>
+<div *ngIf="!questions || questions.length === 0" class="row" style="margin-bottom: 5px; padding: 9px;">
+  <div class="col-md-12 form-control text-center" style="height: auto; padding-top: 11px">
+    <p class="text-danger">There's no questions.</p>
+  </div>
+</div>
+

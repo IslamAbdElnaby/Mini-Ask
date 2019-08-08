@@ -1,0 +1,18 @@
+<div class="container" style="height: auto;">
+  <div class="row" style="height: auto">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 form-control" style="height: auto; z-index: 999;">
+      <nav class='col-md-12 navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 text-light text-center'
+        >
+        <a [routerLink]="['/notifications/questions']" style="width: 34%" class="form-control"
+          [routerLinkActive]='["link-active"]'>Questions</a>
+        <a [routerLink]="['/notifications/answers']" style="width: 33%" class="form-control"
+          [routerLinkActive]='["link-active"]'>Answers</a>
+        <a [routerLink]="['/notifications/likes']" style="width: 33%" class="form-control"
+          [routerLinkActive]='["link-active"]'>Likes</a>
+      </nav>
+      <div class="overflow-auto" style="max-height: 500px; overflow-x: hidden !important; padding: 2px 15px 2px 15px">
+          <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>

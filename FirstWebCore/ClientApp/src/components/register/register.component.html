@@ -1,0 +1,43 @@
+<div class="contrainer">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-5 form-control" style="padding: 25px; height: auto">
+      <h2 class="text-danger">Registeration Form</h2>
+      <br>
+      <form [formGroup]="User">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <p *ngIf="name.invalid && name.touched" class="alert-danger">
+            please, enter your name.
+          </p>
+          <input name="name" type="text" formControlName="name" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <p *ngIf="email.invalid && email.touched" class="alert-danger">
+            this is not an email address.
+          </p>
+          <input name="email" type="email" formControlName="email" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="password" type="password" formControlName="password" class="form-control">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="confirmpassword">Confirmed Password</label>
+          <input [class]="confirmpassword.value !== password.value ? 'border-danger form-control': 'form-control'"
+            name="confirmpassword" type="password" formControlName="confirmpassword">
+        </div>
+        <br>
+        <div class="form-group text-center">
+          <input type="submit" (click)="register()" value="Register" class="btn btn-primary">
+          <a [routerLink]="['/login']" routerLinkActive="link-active" class="text-primary"> Having an account?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

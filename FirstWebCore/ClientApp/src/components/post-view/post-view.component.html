@@ -1,0 +1,11 @@
+<ng-container *ngIf="post.id !== -1; else elseTemplate">
+  <app-post [posts]="[post]"></app-post>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 form-control">
+      <p class="text-danger text-center">ERROR NOT FOUND...</p>
+    </div>
+  </div>
+</ng-template>

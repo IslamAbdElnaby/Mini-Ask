@@ -1,0 +1,18 @@
+<div class="row" style="margin-bottom: 5px; padding: 9px" *ngFor="let answer of answers">
+  <div class="col-md-12 form-control {{answer.ansSeen !== true ? 'unseen' : ''}}" [routerLink]="['/view/post/', answer.id]" style="height: auto; cursor: pointer;">
+    <p *ngIf="answer.recvUser">
+      <a [routerLink]="['/profile/', answer.recvUser.identityId]">
+        <img src="20190331222414165.jpg" class="img-thumbnail" style="border-radius: 50%;
+    width: 60px;
+    max-width: 60ox;
+    height: 60px;">{{answer.recvUser.name}} </a>
+      <span class="text-dark">answer your question: </span>
+      "{{answer.question }} "
+    </p>
+  </div>
+</div>
+<div *ngIf="answers.length === 0" class="row" style="margin-bottom: 5px; padding: 9px;">
+  <div class="col-md-12 form-control text-center" style="height: auto; padding-top: 11px">
+    <p class="text-danger">There's no answers.</p>
+  </div>
+</div>

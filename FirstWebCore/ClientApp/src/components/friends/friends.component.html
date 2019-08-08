@@ -1,0 +1,37 @@
+<div class="container" style="height: auto">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-5" style="height: auto;">
+      <div class="col-md-5"></div>
+      <div class="col-md-7 form-group">
+        <input type="text" placeholder="Search users..." class="form-control" #search (input)="filter(search)">
+        <div class="overflow-auto"  style="max-height: 100px !important;">
+          <a class="text-primary form-control" *ngFor="let user of users" [routerLink]="['/profile', user.identityId]">
+            @{{user.name}}
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row" style="height: auto">
+    <div class="col-md-3"></div>
+    <div class="col-md-5 form-control" style="height: auto;">
+      <div *ngIf="friends.length === 0" class="row">
+        <div class="col-md-3"></div>
+         <p class="text-danger">You don't have any friends.</p>
+      </div>
+      <div class="row"
+       style="margin-bottom: 5px; padding: 9px; height: auto"
+       *ngFor="let f of friends">
+        <div class="col-md-9" style="height: auto">
+          <a *ngIf="f.user" [routerLink]="['/profile', f.user.identityId]">
+            @{{f.user.name}} </a>
+        </div>
+        <div class="col-md-2" *ngIf="f.user && f.follower">
+          <a [routerLink]="['/ask/question', f.follower.id, f.user.id]" class="btn btn-outline-danger">Ask</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
